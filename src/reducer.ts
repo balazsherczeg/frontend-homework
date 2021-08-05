@@ -6,6 +6,7 @@ import * as actions from './actions'
 
 export const isDropdownMenuVisible = createReducer<boolean, Action>(false)
   .handleAction(actions.toggleDropdownMenuVisibility, (state) => !state)
+  .handleAction(actions.hideDropdownMenu, (state) => false)
   
 export const selectedCompanyId = createReducer<number | null, Action>(null)
   .handleAction(actions.setSelectedCompanyId, (_, action) => action.payload)

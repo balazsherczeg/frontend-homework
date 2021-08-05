@@ -1,22 +1,28 @@
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { ReduxState } from './types'
-import { getIsDropdownMenuVisible } from './selectors'
+import { ReduxState, Company } from './types'
+import { getIsDropdownMenuVisible, getSelectedCompany } from './selectors'
 import { toggleDropdownMenuVisibility } from './actions'
 
+import OutsideClicker from './OutsideClicker'
 import DropdownMenu from './DropdownMenu'
 
 type ReduxProps = {
   isDropdownMenuVisible: boolean,
+  selectedCompany: Company,
 }
 
 type DispatchProps = {
   toggleDropdownMenuVisibility: () => void,
 }
 
-export const DropdownLink = ({ isDropdownMenuVisible, toggleDropdownMenuVisibility }: ReduxProps & DispatchProps) => (
-  <>
+export const DropdownLink = ({
+  isDropdownMenuVisible,
+  toggleDropdownMenuVisibility,
+  selectedCompany,
+}: ReduxProps & DispatchProps) => (
+  <div className="DropdownLink">
     <div className="nav__link" onClick={toggleDropdownMenuVisibility} data-test-nav-link>
       <div className="nav__link-text-wrapper">
         <div className="nav__link-text">
@@ -24,7 +30,7 @@ export const DropdownLink = ({ isDropdownMenuVisible, toggleDropdownMenuVisibili
         </div>
 
         <div className="nav__link-subtext">
-          Viljatootja AS
+          {selectedCompany.name}
         </div>
       </div>
 
@@ -33,14 +39,20 @@ export const DropdownLink = ({ isDropdownMenuVisible, toggleDropdownMenuVisibili
       </i>
     </div>
 
-    {isDropdownMenuVisible && <DropdownMenu />}
-  </>
+    {isDropdownMenuVisible && (
+      <>
+        <OutsideClicker />
+        <DropdownMenu />
+      </>
+    )}
+  </div>
 )
 
 
 export default connect(
   createStructuredSelector<ReduxState, ReduxProps>({
     isDropdownMenuVisible: getIsDropdownMenuVisible,
+    selectedCompany: getSelectedCompany,
   }),
   { toggleDropdownMenuVisibility }
 )(DropdownLink)
