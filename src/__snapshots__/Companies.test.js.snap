@@ -2,18 +2,28 @@
 
 exports[`<Companies /> renders list of company links 1`] = `
 <Fragment>
-  <div>
+  <div
+    className="Companies__title small-section-title"
+  >
     Your companies
   </div>
-  <CompanyLink
-    id={1}
+  <Connect(CompanyLink)
+    company={
+      Object {
+        "id": 1,
+        "name": "Dummy company",
+      }
+    }
     key="1"
-    name="Dummy company"
   />
-  <CompanyLink
-    id={2}
+  <Connect(CompanyLink)
+    company={
+      Object {
+        "id": 2,
+        "name": "Smarty company",
+      }
+    }
     key="2"
-    name="Smarty company"
   />
 </Fragment>
 `;

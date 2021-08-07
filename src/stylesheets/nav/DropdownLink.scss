@@ -1,16 +1,8 @@
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  padding: 16px;
-}
-
-.DropdownLink {
+.DropdownLink__wrapper {
   position: relative;
 }
 
-.nav__link {
+.DropdownLink {
   display: flex;
   align-items: center;
   max-width: 280px;
@@ -31,18 +23,19 @@
   }
 }
 
-.nav__link-text-wrapper {
+.DropdownLink__text-wrapper {
   text-align: right;
 }
 
-.nav__link-text {
+.DropdownLink__text {
   font-weight: bold;
 }
 
-.nav__link-subtext {
+.DropdownLink__subtext {
   color: $grey-6;
 }
 
-.nav__link-icon {
+.DropdownLink__icon {
   margin-left: 8px;
 }
+

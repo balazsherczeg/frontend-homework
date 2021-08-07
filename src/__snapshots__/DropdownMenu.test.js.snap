@@ -1,29 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DropdownMenu /> renders menu 1`] = `
-<div>
+<div
+  className="DropdownMenu"
+>
   <Connect(Companies) />
-  <div>
+  <div
+    className="DropdownMenu__section"
+  >
     <MenuLink
+      href="#getApp"
       icon="phone_iphone"
       text="Get the mobile app"
     />
     <MenuLink
+      href="#community"
       icon="people"
       text="Community"
     />
     <MenuLink
+      href="#knowledgeBase"
       icon="book"
       text="Knowledge base"
     />
   </div>
-  <div>
+  <div
+    className="DropdownMenu__section"
+  >
     <MenuLink
       icon="settings"
+      onClick={[Function]}
       text="Settings"
     />
     <MenuLink
+      className="red-text"
       icon="exit_to_app"
+      onClick={[Function]}
       text="Log out"
     />
   </div>

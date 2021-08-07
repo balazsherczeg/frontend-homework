@@ -10,8 +10,11 @@ type DispatchProps = {
   hideDropdownMenu: () => void,
 }
 
-const DropdownCloser = ({ children, hideDropdownMenu }: OwnProps & DispatchProps) => (
-  <div onClick={ hideDropdownMenu }>
+export const DropdownCloser = ({ children, hideDropdownMenu }: OwnProps & DispatchProps) => (
+  <div
+    className="DropdownCloser"
+    onClick={ hideDropdownMenu }
+  >
     {children}
   </div>
 )

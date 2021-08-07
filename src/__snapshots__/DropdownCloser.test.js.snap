@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownCloser /> renders with a child inside 1`] = `
+<div
+  className="DropdownCloser"
+  onClick={[MockFunction]}
+>
+  it is a child
+</div>
+`;

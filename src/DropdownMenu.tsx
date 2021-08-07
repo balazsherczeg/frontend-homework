@@ -36,6 +36,7 @@ const DropdownMenu = () => (
         text="Log out"
         icon="exit_to_app"
         onClick={() => console.log("Logging out")}
+        className="red-text"
       />
     </div>
   </div>

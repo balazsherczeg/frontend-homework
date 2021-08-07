@@ -1,0 +1,33 @@
+.DropdownMenu {
+  @include box-shadow;
+
+  background: $white;
+  border-radius: 8px;
+  border: 1px solid $grey-3;
+  min-width: 300px;
+  position: absolute;
+  right: 0;
+  margin-top: 8px;
+}
+
+.DropdownMenu__section {
+  border-top: $grey-3 1px solid;
+  padding: 8px 0;
+}
+
+.DropdownAnimator {
+  $delay: 200ms;
+  $min: .3;
+  transition: opacity $delay ease-in, transform $delay ease-out;
+  transform-origin: right top;
+
+  &--mounted {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    opacity: 1;
+  }
+
+  &--unmounted {
+    transform: translate3d(0, -24px, 0) scale3d($min, $min, $min);
+    opacity: 0;
+  }
+}

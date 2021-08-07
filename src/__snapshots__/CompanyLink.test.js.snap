@@ -1,7 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CompanyLink /> renders link 1`] = `
-<div>
-  Dummy company
-</div>
+exports[`<CompanyLink /> renders not selected 1`] = `
+<Connect(DropdownCloser)>
+  <div
+    className="CompanyLink "
+    onClick={[Function]}
+    role="button"
+  >
+    <span
+      className="strong"
+    >
+      Dummy company
+    </span>
+  </div>
+</Connect(DropdownCloser)>
+`;
+
+exports[`<CompanyLink /> renders selected 1`] = `
+<Connect(DropdownCloser)>
+  <div
+    className="CompanyLink CompanyLink--selected"
+    onClick={[Function]}
+    role="button"
+  >
+    <span
+      className="strong"
+    >
+      Dummy company
+    </span>
+    <i
+      className="material-icons"
+    >
+      done
+    </i>
+  </div>
+</Connect(DropdownCloser)>
 `;

@@ -1,0 +1,19 @@
+.CompanyLink {
+  @include menu-item;
+  @include state-feedback;
+
+  height: 44px;
+  justify-content: space-between;
+
+  &--selected {
+    color: $dark-green;
+
+    &, &:active {
+      background: rgba($green, .1);
+    }
+
+    &:hover, &:focus {
+      background: rgba($green, .2);
+    }
+  }
+}

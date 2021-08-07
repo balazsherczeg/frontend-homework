@@ -1,62 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DropdownLink /> renders with dropdown menu 1`] = `
-<Fragment>
+<div
+  className="DropdownLink__wrapper"
+>
   <div
-    className="nav__link"
+    className="DropdownLink"
     data-test-nav-link={true}
     onClick={[MockFunction]}
   >
     <div
-      className="nav__link-text-wrapper"
+      className="DropdownLink__text-wrapper"
     >
       <div
-        className="nav__link-text"
+        className="DropdownLink__text"
       >
         Elon Musk
       </div>
       <div
-        className="nav__link-subtext"
+        className="DropdownLink__subtext"
       >
         Viljatootja AS
       </div>
     </div>
     <i
-      className="material-icons-outlined nav__link-icon"
+      className="material-icons-outlined DropdownLink__icon"
     >
       settings
     </i>
   </div>
-  <DropdownMenu />
-</Fragment>
+  <OutsideClicker />
+  <Animator
+    className="DropdownAnimator"
+    isMounted={true}
+  >
+    <DropdownMenu />
+  </Animator>
+</div>
 `;
 
 exports[`<DropdownLink /> renders without dropdown menu 1`] = `
-<Fragment>
+<div
+  className="DropdownLink__wrapper"
+>
   <div
-    className="nav__link"
+    className="DropdownLink"
     data-test-nav-link={true}
     onClick={[MockFunction]}
   >
     <div
-      className="nav__link-text-wrapper"
+      className="DropdownLink__text-wrapper"
     >
       <div
-        className="nav__link-text"
+        className="DropdownLink__text"
       >
         Elon Musk
       </div>
       <div
-        className="nav__link-subtext"
+        className="DropdownLink__subtext"
       >
         Viljatootja AS
       </div>
     </div>
     <i
-      className="material-icons-outlined nav__link-icon"
+      className="material-icons-outlined DropdownLink__icon"
     >
       settings
     </i>
   </div>
-</Fragment>
+  <Animator
+    className="DropdownAnimator"
+    isMounted={false}
+  >
+    <DropdownMenu />
+  </Animator>
+</div>
 `;

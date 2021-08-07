@@ -7,10 +7,11 @@ import { toggleDropdownMenuVisibility } from './actions'
 
 import OutsideClicker from './OutsideClicker'
 import DropdownMenu from './DropdownMenu'
+import Animator from './Animator'
 
 type ReduxProps = {
   isDropdownMenuVisible: boolean,
-  selectedCompany: Company,
+  selectedCompany?: Company,
 }
 
 type DispatchProps = {
@@ -22,32 +23,35 @@ export const DropdownLink = ({
   toggleDropdownMenuVisibility,
   selectedCompany,
 }: ReduxProps & DispatchProps) => (
-  <div className="DropdownLink">
-    <div className="nav__link" onClick={toggleDropdownMenuVisibility} data-test-nav-link>
-      <div className="nav__link-text-wrapper">
-        <div className="nav__link-text">
+  <div className="DropdownLink__wrapper">
+    <div className="DropdownLink" onClick={toggleDropdownMenuVisibility} data-test-nav-link>
+      <div className="DropdownLink__text-wrapper">
+        <div className="DropdownLink__text">
           Elon Musk
         </div>
 
-        <div className="nav__link-subtext">
-          {selectedCompany.name}
-        </div>
+        {selectedCompany && (
+          <div className="DropdownLink__subtext">
+            {selectedCompany.name}
+          </div>
+        )}
       </div>
 
-      <i className="material-icons-outlined nav__link-icon">
+      <i className="material-icons-outlined DropdownLink__icon">
         settings
       </i>
     </div>
 
-    {isDropdownMenuVisible && (
-      <>
-        <OutsideClicker />
-        <DropdownMenu />
-      </>
-    )}
+    {isDropdownMenuVisible && <OutsideClicker />}
+
+    <Animator
+      className="DropdownAnimator"
+      isMounted={isDropdownMenuVisible}
+    >
+      <DropdownMenu />
+    </Animator>
   </div>
 )
-
 
 export default connect(
   createStructuredSelector<ReduxState, ReduxProps>({

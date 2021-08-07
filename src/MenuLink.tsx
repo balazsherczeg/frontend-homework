@@ -1,41 +1,38 @@
-import { connect } from 'react-redux'
-
-import { hideDropdownMenu } from './actions'
-
 import DropdownCloser from './DropdownCloser';
 
 type Props = {
   text: string,
   icon: string,
-  onClick: () => void,
-  href: string,
-}
+  className?: string,
+} & ({ onClick: () => void } | { href: string })
 
-const MenuLink = ({ icon, text, onClick, href }: Props) => {
+const MenuLink = (props: Props) => {
+  const { icon, text, className } = props;
+
   const handleClick = () => {
-    if (href) {
-      console.log("Going somewhere")
-      window.location.href = href
+    if ("href" in props) {
+      window.location.assign(props.href)
     } else {
-      console.log("Doing something")
-      onClick()
+      props.onClick()
     }
   }
 
   return (
-    <DropdownCloser>
-      <div
-        className="MenuLink align-items-vertically-center"
-        role="button"
-        onClick={handleClick}
-      >
-        <i className="MenuLink__icon material-icons">
-          {icon}
-        </i>
+    <div className={`MenuLink ${className}`}>
+      <DropdownCloser>
+        <div
+          className="MenuLink__inner align-items-vertically-center"
+          role="button"
+          onClick={handleClick}
+        >
+          <i className="MenuLink__icon material-icons">
+            {icon}
+          </i>
 
-        {text}
-      </div>
-    </DropdownCloser>
+          {text}
+        </div>
+      </DropdownCloser>
+    </div>
   )
 }
 

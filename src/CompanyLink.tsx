@@ -2,13 +2,13 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
 import { ReduxState } from './types'
-import { isCompanySelected } from './selectors'
+import { getIsCompanySelected } from './selectors'
 import { setSelectedCompanyId } from './actions'
 import { Company } from './types'
 
 import DropdownCloser from './DropdownCloser';
 
-type Props = {
+type OwnProps = {
   company: Company,
 }
 
@@ -17,17 +17,18 @@ type ReduxProps = {
 }
 
 type DispatchProps = {
-  setSelectedCompanyId: () => void,
+  setSelectedCompanyId: (id: number) => void,
 }
 
-const CompanyLink = ({
+export const CompanyLink = ({
   company: { name, id },
   isCompanySelected,
   setSelectedCompanyId
-}: Props & ReduxProps & DispatchProps) => (
+}: OwnProps & ReduxProps & DispatchProps) => (
   <DropdownCloser>
     <div
       className={`CompanyLink ${isCompanySelected ? "CompanyLink--selected" : ""}`}
+      role="button"
       onClick={() => setSelectedCompanyId(id)}
     >
       <span className="strong">{name}</span>
@@ -37,8 +38,8 @@ const CompanyLink = ({
 )
 
 export default connect(
-  createStructuredSelector<ReduxState, ReduxProps>({
-    isCompanySelected,
+  createStructuredSelector<ReduxState, OwnProps, ReduxProps>({
+    isCompanySelected: getIsCompanySelected,
   }),
   { setSelectedCompanyId }
 )(CompanyLink)

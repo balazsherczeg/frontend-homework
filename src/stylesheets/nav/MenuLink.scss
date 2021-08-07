@@ -1,0 +1,19 @@
+.MenuLink {
+  height: 32px;
+
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+}
+
+.MenuLink__inner {
+  @include menu-item;
+  @include state-feedback;
+
+  height: 100%;
+  width: 100%;
+}
+
+.MenuLink__icon {
+  padding-right: 8px;
+}

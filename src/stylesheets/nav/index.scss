@@ -1,0 +1,34 @@
+@mixin menu-item {
+  align-items: center;
+  display: flex;
+  padding: 0 8px 0 16px;
+}
+
+@mixin state-feedback {
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: $grey-1;
+  }
+
+  &:active {
+    background-color: $grey-2;
+  }
+}
+
+@import
+  'DropdownLink',
+  'DropdownMenu',
+  'Companies',
+  'CompanyLink',
+  'MenuLink',
+  'DropdownCloser',
+  'OutsideClicker';
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 16px;
+}
