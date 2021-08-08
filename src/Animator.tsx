@@ -14,17 +14,24 @@ function useDelayUnmount(isMounted: boolean, delayTime: number) {
     }
     return () => clearTimeout(timeoutId);
   }, [isMounted, delayTime, shouldRender]);
+
   return shouldRender;
 }
 
 type Props = {
   children: React.ReactNode,
-  isMounted: boolean,
   className: string,
+  delay?: number,
+  isMounted: boolean,
 }
 
-const Animator = ({ isMounted, children, className }: Props) => {
-  const shouldRenderChild = useDelayUnmount(isMounted, 200);
+const Animator = ({
+  children,
+  className,
+  delay = 250,
+  isMounted,
+}: Props) => {
+  const shouldRenderChild = useDelayUnmount(isMounted, delay);
   const animationClassName = isMounted ? `${className}--mounted` : `${className}--unmounted`
 
   return (

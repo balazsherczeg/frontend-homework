@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Animator /> doesn’t render its child if unmounted 1`] = `
+<Animator
+  className="Test"
+  isMounted={false}
+>
+  <div
+    className="Test Test--unmounted"
+  />
+</Animator>
+`;
+
+exports[`<Animator /> renders its child if mounted 1`] = `
+<Animator
+  className="Test"
+  isMounted={true}
+>
+  <div
+    className="Test Test--mounted"
+  >
+    <div>
+      a child
+    </div>
+  </div>
+</Animator>
+`;
